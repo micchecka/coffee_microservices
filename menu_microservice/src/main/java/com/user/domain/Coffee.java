@@ -1,17 +1,14 @@
-package com.user.model;
+package com.user.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.stereotype.Component;
 
 
 import javax.persistence.*;
 
 import java.net.URL;
-import java.util.List;
-import java.util.Set;
 
 @Entity
 @Data

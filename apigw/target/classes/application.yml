@@ -13,6 +13,10 @@ spring:
           uri: lb://MENU
           predicates:
             - Path=/api/v1/menu/**
+        - id: bucket
+          uri: lb://BUCKET
+          predicates:
+             - Path=/api/v1/firstAuth/**
 
 eureka:
   client:

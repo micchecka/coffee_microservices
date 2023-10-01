@@ -1,22 +1,21 @@
 package com.user.menu_service;
 
 import com.user.dto.DTO;
-import com.user.model.Coffee;
-import com.user.model.Food;
-import com.user.model.Item;
-import com.user.model.Tag;
+import com.user.domain.Coffee;
+import com.user.domain.Food;
+import com.user.domain.Item;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static org.yaml.snakeyaml.tokens.Token.ID.Tag;
-
 @Service
 @AllArgsConstructor
 public class MenuService {
+    private final RestTemplate restTemplate;
 
     private final MenuRepository menuRepository;
 
@@ -47,7 +46,7 @@ public class MenuService {
                 dto.setName(coffee.getCoffee_name());
                 dto.setDescription(coffee.getCoffee_description());
                 dto.setPrice(coffee.getCoffee_price());
-                dto.setTags(item.getTags().stream().map(com.user.model.Tag::getTagName).collect(Collectors.toList()));
+                dto.setTags(item.getTags().stream().map(com.user.domain.Tag::getTagName).collect(Collectors.toList()));
                 dtoList.add(dto);
             } else if (item.getClass() == Food.class) {
                 Food food = (Food) item;
@@ -55,7 +54,7 @@ public class MenuService {
                 dto.setName(food.getFood_name());
                 dto.setDescription(food.getFood_description());
                 dto.setPrice(food.getFood_price());
-                dto.setTags(item.getTags().stream().map(com.user.model.Tag::getTagName).collect(Collectors.toList()));
+                dto.setTags(item.getTags().stream().map(com.user.domain.Tag::getTagName).collect(Collectors.toList()));
                 dtoList.add(dto);
             }
         }

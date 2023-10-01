@@ -1,11 +1,9 @@
-package com.user.model;
+package com.user.domain;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.Fetch;
-import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 import java.util.HashSet;
