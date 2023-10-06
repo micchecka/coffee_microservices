@@ -1,0 +1,41 @@
+server:
+  port: 8083
+spring:
+  application:
+    name: menu
+  datasource:
+    password: password
+    url: jdbc:postgresql://postgres:5432/coffee
+#    url: jdbc:postgresql://localhost:5432/coffee
+    username: coffee
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+#        hbm2ddl:
+#          import_files: classpath:/data-init.sql
+    show-sql: true
+#  sql:
+#    init:
+#      mode: always
+#      data-locations: classpath:/data-init.sql
+
+
+eureka:
+  client:
+    service-url:
+#     defaultZone: http://172.23.0.4:8761/eureka # имя сервиса, а не образа
+     defaultZone: http://coffee-eureka-server:8761/eureka/
+#      defaultZone: http://local:8761/eureka
+
+
+
+
+logging:
+  level:
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type: TRACE

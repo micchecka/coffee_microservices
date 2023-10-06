@@ -7,12 +7,17 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="bucket" />
-        <module name="apigw" />
-        <module name="menu_microservice" />
+        <module name="coffee-menu" />
+        <module name="coffee-apigw" />
         <module name="user" />
-        <module name="eureka-server" />
+        <module name="coffee-bucket" />
+        <module name="coffee-eureka-server" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="bucket" target="17" />
+      <module name="eureka-server" target="17" />
+      <module name="menu_microservice" target="17" />
+    </bytecodeTargetLevel>
   </component>
 </project>

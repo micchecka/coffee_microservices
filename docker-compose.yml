@@ -1,7 +1,34 @@
+version: '1'
 services:
+  coffee-apigw:
+    image: micchecka/coffee-apigw:latest
+    ports:
+      - "8080:8080"
+    networks:
+      - default
+  coffee-eureka-server:
+    image: micchecka/coffee-eureka-server:latest
+    ports:
+      - "8761:8761"
+  coffee-menu:
+    image: micchecka/coffee-menu:latest
+    ports:
+      - "8083:8083"
+    networks:
+      - postgres
+      - default
+  coffee-bucket:
+    image: micchecka/coffee-bucket
+    ports:
+      - "8082:8082"
+    networks:
+      - postgres
+      - default
+
   postgres:
     container_name: postgres
-    image: postgres
+#    image: postgres
+    image: micchecka/coffee-db-image
     environment:
       POSTGRES_USER: coffee
       POSTGRES_PASSWORD: password
@@ -13,6 +40,8 @@ services:
     networks:
       - postgres
     restart: unless-stopped
+
+
   pgadmin:
     container_name: pgadmin_coffee
     image: dpage/pgadmin4
