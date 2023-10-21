@@ -9,7 +9,6 @@
         <outputRelativeToContentRoot value="true" />
         <module name="coffee-menu" />
         <module name="coffee-apigw" />
-        <module name="user" />
         <module name="coffee-bucket" />
         <module name="coffee-eureka-server" />
       </profile>
@@ -18,6 +17,7 @@
       <module name="bucket" target="17" />
       <module name="eureka-server" target="17" />
       <module name="menu_microservice" target="17" />
+      <module name="user" target="17" />
     </bytecodeTargetLevel>
   </component>
 </project>

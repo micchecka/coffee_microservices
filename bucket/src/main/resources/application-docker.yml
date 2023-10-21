@@ -23,7 +23,7 @@ spring:
   session:
     store-type: redis
   redis:
-    host: redis
+    host: loc
     port: 6379
 
 

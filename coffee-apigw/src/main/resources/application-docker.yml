@@ -21,7 +21,8 @@ spring:
 eureka:
   client:
     service-url:
-      defaultZone: http://coffee-eureka-server:8761/eureka/
+#      defaultZone: http://coffee-eureka-server:8761/eureka/
+      defaultZone: https://eureka-server-6dsq.onrender.com/
 
 logging:
   level:
