@@ -1,0 +1,61 @@
+services:
+  - type: web
+    name: coffee-apigw
+    env: docker
+    image: micchecka/coffee-apigw:latest
+    envVars:
+      - key: SPRING_PROFILES_ACTIVE
+        value: docker
+
+  - type: web
+    name: coffee-eureka-server
+    image: micchecka/coffee-eureka-server:latest
+
+  - type: web
+    name: coffee-menu
+    env: docker
+    image: micchecka/coffee-menu:latest
+    envVars:
+      - key: SPRING_PROFILES_ACTIVE
+        value: docker
+
+  - type: web
+    name: coffee-bucket
+    env: docker
+    image: micchecka/coffee-bucket
+    envVars:
+      - key: SPRING_PROFILES_ACTIVE
+        value: docker
+
+  - type: pserv
+    name: postgres
+    image: micchecka/coffee-db-image
+    envVars:
+      - key: POSTGRES_USER
+        value: coffee
+      - key: POSTGRES_PASSWORD
+        value: password
+
+  - type: web
+    name: pgadmin
+    image: dpage/pgadmin4
+    envVars:
+      - key: PGADMIN_DEFAULT_EMAIL
+        value: pgadmin4@pgadmin.org
+      - key: PGADMIN_DEFAULT_PASSWORD
+        value: admin
+
+  - type: web
+    name: zipkin
+    image: openzipkin/zipkin
+
+  - type: web
+    name: redis
+    image: redis:latest
+
+  - type: web
+    name: redis-commander
+    image: rediscommander/redis-commander:latest
+    envVars:
+      - key: REDIS_HOSTS
+        value: local:redis:6379
