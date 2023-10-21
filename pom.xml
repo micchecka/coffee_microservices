@@ -7,9 +7,9 @@
     <modules>
         <module>user</module>
         <module>bucket</module>
-        <module>menu_microservice</module>
-        <module>eureka-server</module>
-        <module>apigw</module>
+        <module>coffee-menu</module>
+        <module>coffee-eureka-server</module>
+        <module>coffee-apigw</module>
     </modules>
     <version>1.0-SNAPSHOT</version>
     <name>coffemicroservices Maven Webapp</name>
@@ -22,6 +22,7 @@
         <spring.boot.maven.plugin.version>2.5.7</spring.boot.maven.plugin.version>
         <spring.boot.dependencies.version>2.5.7</spring.boot.dependencies.version>
         <spring-cloud.version>2020.0.3</spring-cloud.version>
+        <image>micchecka/${project.artifactId}:${project.version}</image>
     </properties>
 
     <dependencyManagement>
@@ -64,27 +65,55 @@
             <artifactId>spring-cloud-starter-openfeign</artifactId>
         </dependency>
 
-
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-webflux</artifactId>
+        </dependency>
     </dependencies>
-
 
 
     <build>
         <pluginManagement>
-        <plugins>
-        <plugin>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-maven-plugin</artifactId>
-            <version>${spring.boot.maven.plugin.version}</version>
-            <executions>
-                <execution>
-                    <goals>
-                        <goal>repackage</goal>
-                    </goals>
-                </execution>
-            </executions>
-        </plugin>
-        </plugins>
+            <plugins>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <version>${spring.boot.maven.plugin.version}</version>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>repackage</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+                <plugin>
+                    <groupId>com.google.cloud.tools</groupId>
+                    <artifactId>jib-maven-plugin</artifactId>
+                    <version>3.1.4</version>
+                    <configuration>
+                        <from>
+                            <image>
+                                eclipse-temurin:17@sha256:2b47a8ea946ce1e5365a1562414ed576e378b7b670cadff3fb98ebecf2890cdc
+                            </image>
+                        </from>
+                        <to>
+                            <tags>
+                                <tag>latest</tag>
+                            </tags>
+                        </to>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <phase>package</phase>
+                            <goals>
+                                <goal>build</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+
+                </plugin>
+            </plugins>
         </pluginManagement>
 
 
