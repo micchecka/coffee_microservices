@@ -4,6 +4,8 @@ server:
 spring:
   application:
     name: bucket
+  zipkin:
+    base-url: http://zipkin:9411
   datasource:
     password: password
     url: jdbc:postgresql://postgres:5432/bucket
@@ -28,7 +30,7 @@ spring:
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8761/eureka
+      defaultZone: http://coffee-eureka-server:8761/eureka/
 
 logging:
   level:
