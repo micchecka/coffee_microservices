@@ -1,0 +1,6 @@
+com\user\rest\BucketController.class
+com\user\domain\Bucket.class
+com\user\BucketApplication.class
+com\user\config\Configuration.class
+com\user\servise\BucketService.class
+com\user\domain\BucketResult.class

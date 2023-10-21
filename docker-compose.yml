@@ -4,26 +4,46 @@ services:
     image: micchecka/coffee-apigw:latest
     ports:
       - "8080:8080"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
     networks:
       - default
+    depends_on:
+      - zipkin
+      - eureka-server
+
   coffee-eureka-server:
     image: micchecka/coffee-eureka-server:latest
     ports:
       - "8761:8761"
+    depends_on:
+      - zipkin
+
   coffee-menu:
     image: micchecka/coffee-menu:latest
     ports:
       - "8083:8083"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
     networks:
       - postgres
       - default
+    depends_on:
+      - zipkin
+      - eureka-server
+
   coffee-bucket:
     image: micchecka/coffee-bucket
     ports:
       - "8082:8082"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
     networks:
       - postgres
       - default
+    depends_on:
+      - zipkin
+      - eureka-server
 
   postgres:
     container_name: postgres
@@ -60,10 +80,11 @@ services:
 
   zipkin:
     image: openzipkin/zipkin
-    container_name: coffe_zipkin
+    container_name: zipkin
     ports:
       - "9411:9411"
-
+    networks:
+      - spring
 
   redis:
     image: redis:latest

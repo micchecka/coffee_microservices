@@ -6,7 +6,6 @@ spring:
     name: bucket
   datasource:
     password: password
-#    url: jdbc:postgresql://postgres:5432/bucket
     url: jdbc:postgresql://localhost:5432/bucket
     username: coffee
 
@@ -22,7 +21,6 @@ spring:
   session:
     store-type: redis
   redis:
-#    host: redis
     host: localhost
     port: 6379
 
@@ -30,8 +28,8 @@ spring:
 eureka:
   client:
     service-url:
-#      defaultZone: http://localhost:8761/eureka
-      defaultZone: http://coffee-eureka-server:8761/eureka/
+      defaultZone: http://localhost:8761/eureka
+
 
 logging:
   level:

@@ -1,0 +1,9 @@
+com\user\domain\Tag.class
+com\user\rest\ApiGWController.class
+com\user\ApiGWApplication.class
+com\user\domain\Item.class
+com\user\DTO\InitialDataResponse.class
+com\user\domain\Bucket.class
+com\user\configuration\Configuration.class
+com\user\aggregation_service\AggregationService.class
+com\user\domain\DTO.class

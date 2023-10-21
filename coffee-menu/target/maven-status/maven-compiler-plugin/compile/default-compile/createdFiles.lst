@@ -1,0 +1,12 @@
+com\user\domain\Tag.class
+com\user\domain\Item.class
+com\user\domain\Coffee.class
+com\user\menu_service\MenuRepository.class
+com\user\domain\Coffee$CoffeeBuilder.class
+com\user\domain\Food$FoodBuilder.class
+com\user\dto\DTO.class
+com\user\domain\Food.class
+com\user\configuration\MenuConfiguration.class
+com\user\menu_service\MenuService.class
+com\user\controller\Controller.class
+com\user\MenuApplication.class
