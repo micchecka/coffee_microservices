@@ -5,7 +5,6 @@
     <artifactId>coffemicroservices</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>user</module>
         <module>bucket</module>
         <module>coffee-menu</module>
         <module>coffee-eureka-server</module>
