@@ -2,6 +2,7 @@ services:
   - type: web
     name: coffee-apigw
     env: docker
+    runtime: image
     image:
       url: micchecka/coffee-apigw:latest
     envVars:
@@ -10,12 +11,14 @@ services:
 
   - type: web
     name: coffee-eureka-server
+    runtime: image
     image:
       url: micchecka/coffee-eureka-server:latest
 
   - type: web
     name: coffee-menu
     env: docker
+    runtime: image
     image:
       url: micchecka/coffee-menu:latest
     envVars:
@@ -25,6 +28,7 @@ services:
   - type: web
     name: coffee-bucket
     env: docker
+    runtime: image
     image:
       url: micchecka/coffee-bucket
     envVars:
@@ -33,6 +37,7 @@ services:
 
   - type: pserv
     name: postgres
+    runtime: image
     image:
       url: micchecka/coffee-db-image
     envVars:
@@ -43,6 +48,7 @@ services:
 
   - type: web
     name: pgadmin
+    runtime: image
     image:
       url: dpage/pgadmin4
     envVars:
@@ -53,16 +59,19 @@ services:
 
   - type: web
     name: zipkin
+    runtime: image
     image:
       url: openzipkin/zipkin
 
   - type: web
     name: redis
+    runtime: image
     image:
       url: redis:latest
 
   - type: web
     name: redis-commander
+    runtime: image
     image:
       url: rediscommander/redis-commander:latest
     envVars:
